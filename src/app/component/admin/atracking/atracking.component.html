@@ -1,0 +1,30 @@
+<app-admin></app-admin>
+
+
+<!--  Table -->
+<div class="container" style="max-width:95%;">
+    <table class="table table-hover my-5 table-dark table-striped">
+        <thead style="color:rgb(71, 165, 42);">
+            <tr style="text-align: center;">
+                <th colspan="4" style="color: coral;">LACATION DETAILS</th>
+                
+            </tr>
+            <tr style="text-align: center;">
+                <th scope="col">Latitude</th>
+                <th scope="col">Longitude</th>
+                <th scope="col">Time</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let locatDetail of trackingDetails.locationDetails" style="text-align: center;">
+                <td scope="col">{{locatDetail.latitude}}</td>
+                <td scope="col">{{locatDetail.longiitude}}</td>
+                <td scope="col">{{locatDetail.createdTime}}</td>
+                <td>
+                    <button (click)="details([(locatDetail)])" class="btn-primary">View Map Location</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

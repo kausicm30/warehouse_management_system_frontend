@@ -1,0 +1,128 @@
+<app-employee></app-employee>
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Products</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form">
+                    <form #packagedetails="ngForm" (ngSubmit)="addProductDetails(packagedetails.value)"
+                        class="needs-validation">
+                        <div class="form-group my-3">
+                            <label for="cname">Product Id</label>
+                            <input type="text" name="productId" id="product_id" [(ngModel)]="productId"
+                                placeholder="Enter ProductID" class="form-control inputId" ngModel readonly  required>
+                            <div class="valid-feedback"> Valid Id</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                        <div class="form-group my-3">
+                            <label for="cname">Product Title</label>
+                            <input type="text" name="title" placeholder="Enter Product ID"
+                                [(ngModel)]="title" class="form-control" ngModel  readonly required>
+                            <div class="valid-feedback"> Valid</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                        <div class="form-group my-3">
+                            <label for="cname">Product Description</label>
+                            <input type="text" name="description" placeholder="Enter Product Description"
+                                class="form-control" [(ngModel)]="description" ngModel  readonly required>
+                            <div class="valid-feedback"> Valid</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                        <div class="form-group my-3">
+                            <label for="cname">Product Price</label>
+                            <input type="number" name="unitprice" placeholder="Enter Product Price"
+                                class="form-control" [(ngModel)]="unitprice" ngModel readonly  required>
+                            <div class="valid-feedback"> Valid</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                        <div class="form-group my-3">
+                            <label for="cname">Category</label>
+                            <input type="text" name="category" placeholder="Enter Category"
+                                [(ngModel)]="category" class="form-control" ngModel  readonly required>
+                            <div class="valid-feedback"> Valid</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                        <div class="form-group my-3">
+                            <label for="cname">Product Color</label>
+                            <input type="text" name="color" placeholder="Enter Product Color"
+                                [(ngModel)]="color" class="form-control" ngModel readonly  required>
+                            <div class="valid-feedback"> Valid</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                        <div class="form-group my-3">
+                            <label for="cname">Quantity</label>
+                            <input type="number" name="quantity" placeholder="Enter Product Price"
+                                [(ngModel)]="quantity" class="form-control" ngModel readonly required>
+                            <div class="valid-feedback"> Valid Id</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="container" style="max-width:95%;">
+    <table class="table table-hover my-5 table-dark table-striped">
+        <thead style="color:rgb(71, 165, 42);">
+            <tr>
+                <th scope="col">Product Id</th>
+                <th scope="col">Product Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Product Price</th>
+                <th scope="col">Category</th>
+                <th scope="col">Product Color</th>
+                <th scope="col">Created At</th>
+                <th scope="col">Updated At</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of productDetails">
+                <td scope="col">{{product.productId}}</td>
+                <td scope="col">{{product.title}}</td>
+                <td scope="col">{{product.description}}</td>
+                <td scope="col">{{product.pricing.unitprice}}</td>
+                <td scope="col">{{product.category}}</td>
+                <td scope="col">{{product.color}}</td>
+                <td scope="col">{{product.createdAt}}</td>
+                <td scope="col">{{product.updatedAt}}</td>
+                <td>
+                    <div class="btn-group dropstart">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-list" viewBox="0 0 16 16">
+                                <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                                <path d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
+                              </svg>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                            <li class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="details([(product)])" style="color: black">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                                <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+                                <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+                              </svg>
+                              View
+                            </li>
+                        </ul>
+                      </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

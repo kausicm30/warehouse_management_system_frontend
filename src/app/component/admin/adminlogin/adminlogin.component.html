@@ -1,0 +1,44 @@
+<div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto background">
+  <div class="card card0 border-0 mt-5 text-white">
+    <div class="row px-3 mb-4 mt-5">
+      <div class="line"></div> <small class="or text-center">Admin Login Portal</small>
+      <div class="line"></div>
+    </div>
+    <div class="container">
+      <div class="Form mx-3">
+        <form #userlogin="ngForm" (ngSubmit)="onClickSubmit(userlogin.value)" class="needs-validation">
+          <div class="form-group my-3">
+            <label for="cname">Admin_Id</label>
+            <input type="text" name="adminId" placeholder="Enter admin Id"
+              class="form-control bg-dark text-white rounded-3" ngModel required>
+            <div class="valid-feedback"> Valid Id</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+
+          </div>
+
+          <div class="form-group my-5">
+            <label for="pno">Password</label>
+            <input type="password" name="password" placeholder="Enter password"
+              class="form-control bg-dark text-white rounded-3" ngModel required>
+            <div class="valid-feedback">Valid Password</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input col-1" style="width:2px;" type="checkbox" value="" id="flexCheckChecked"
+              checked>
+            <label class="form-check-label ms-3" for="flexCheckChecked">
+              Remember me
+            </label>
+          </div>
+          <div style="color: darkred; text-align: center;">{{error}}</div>
+
+          <div class="d-grid col-5 mx-start my-5">
+            <button type="submit" value="submit" class="btn btn-primary btn-lg"> Login </button>
+          </div>
+        </form>
+      </div>
+
+
+    </div>
+  </div>
+</div>
